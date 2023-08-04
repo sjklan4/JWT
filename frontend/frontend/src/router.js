@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ListPage from './components/listpage.vue';
+import listpage from './components/listpage.vue';
 
 const routes = [
-  // your other routes...
-  { path: '/listpage', component: ListPage },
+
+    { path: '/listpage', name: 'ListPage', component: listpage },
 ];
 
 const router = createRouter({

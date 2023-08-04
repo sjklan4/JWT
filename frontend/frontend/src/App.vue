@@ -1,10 +1,16 @@
 <template>
-  <div>
+   <div v-if="!isLoggedIn">
     ID :<input type="text" v-model="user.id">
     Password: <input type="password" v-model="user.password">
     <button @click="login()">login</button>
   </div>
+  <router-view>
+
+  </router-view>
 </template>
+
+
+
 
 <script>
 import axios from "axios";
@@ -14,6 +20,7 @@ export default {
   name: 'App',
   data() {
     return {
+      isLoggedIn: false,
       token: '',
       user: {
         id: '',
@@ -26,8 +33,9 @@ export default {
       axios.get(`http://localhost:8000/api/token?id=${this.user.id}&password=${this.user.password}`)
       .then(res => {
         console.log(res.data);
-        if (res.data.errflg === 0) {
+        if (res.data.errflg === '0') {
           this.token = res.data.token; 
+          this.isLoggedIn = true;
           router.push('/listpage');
         } 
       })
