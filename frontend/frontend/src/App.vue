@@ -11,7 +11,6 @@
 
 
 
-
 <script>
 import axios from "axios";
 import router from './router'; 
@@ -40,7 +39,10 @@ export default {
         } 
       })
       .catch(err => {
-        console.error(err);
+        if(err.status >= 400){
+          console.log(err);
+
+        };
       });
     },
   },
