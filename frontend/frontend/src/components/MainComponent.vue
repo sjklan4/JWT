@@ -1,6 +1,31 @@
 <template>
     <div>
         <h1>MainComponents</h1>
+    ID :<input type="text" name="id" id="id">&nbsp;
+    Password: <input type="password" name="password" id="password">&nbsp;
+    <button @click="login()" v-if="!store.state.isToken">login</button>
+    <button @click="logout()" v-if="store.state.isToken">logout</button>
+    {{ $store.state.token }}
+
+    </div>
+</template>
+<script>
+export default{
+    name: "MainComponent"
+}
+</script>
+
+
+<style>
+
+</style>
+
+
+
+
+<!-- <template>
+    <div>
+        <h1>MainComponents</h1>
     </div>
 </template>
 
@@ -29,4 +54,4 @@ methods:{
         };
     })
 },
-</script>
+</script> -->
